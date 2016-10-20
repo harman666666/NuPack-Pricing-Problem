@@ -23,7 +23,7 @@ describe 'NuPack' do
         it "returns 13108.80" do
         nupack  = Nupack.new         
         value = nupack.flatMarkupPrice(12484.56)           
-        expect(value).to eq(13108.79)  
+        expect(value).to eq(13108.788)  
       end
     end
   end
@@ -72,8 +72,8 @@ describe ".projectCost" do
       end
     end
     end
-    #Tests for Food
-    describe "food" do
+  #Tests for Food
+  describe "food" do
 
   context "given $0, 0 people, food" do
         it "returns 0" do
@@ -114,9 +114,54 @@ describe ".projectCost" do
         expect(value).to eq(1591.58)  
       end
     end
+    end
+
+
+  #Tests for Electronics
+  describe "electronics" do
+
+  context "given $0, 0 people, electronics" do
+        it "returns 0" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(0, 0, "electronics")           
+        expect(value).to eq(0)  
+      end
+    end
+
+    context "given $0, 9 people, electronics" do
+        it "returns 0" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(0, 0, "electronics")           
+        expect(value).to eq(0)  
+      end
+    end
+
+     context "$6,666.00, 0 people, electronics" do
+        it "returns 7139.29" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(6666, 0, "electronics")           
+        expect(value).to eq(7139.29)  
+      end
+    end
+
+  context "$5,432.00, 1 person, electronics" do
+        it "returns 5886.12" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(5432, 1, "electronics")           
+        expect(value).to eq(5886.12)  
+      end
+    end
+
+    context "$4,503.99, 5 people, electronics" do
+        it "returns 5107.52" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(4503.99, 5, "electronics")           
+        expect(value).to eq(5107.52)  
+      end
+    end
 
   
-    end 
+    end  
 
 
 
