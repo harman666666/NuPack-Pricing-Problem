@@ -29,7 +29,8 @@ describe 'NuPack' do
   end
 
 describe ".projectCost" do
-  describe "pharmaceuticals" do
+  #Tests for Drugs
+  describe "pharmaceuticals" do 
 
   context "given $0, 0 people, drugs" do
         it "returns 0" do
@@ -48,7 +49,7 @@ describe ".projectCost" do
     end
 
      context "$6,666.00, 0 people, drugs" do
-        it "returns 0" do
+        it "returns 7524.25" do
         nupack  = Nupack.new         
         value = nupack.projectCost(6666, 0, "drugs")           
         expect(value).to eq(7524.25)  
@@ -56,7 +57,7 @@ describe ".projectCost" do
     end
 
   context "$5,432.00, 1 person, drugs" do
-        it "returns 0" do
+        it "returns 6199.81" do
         nupack  = Nupack.new         
         value = nupack.projectCost(5432, 1, "drugs")           
         expect(value).to eq(6199.81)  
@@ -64,17 +65,66 @@ describe ".projectCost" do
     end
 
     context "$9,256.00, 8 people, drugs" do
-        it "returns 0" do
+        it "returns 11380.71" do
         nupack  = Nupack.new         
         value = nupack.projectCost(9256, 8, "drugs")           
         expect(value).to eq(11380.71)  
       end
     end
-    end    
+    end
+    #Tests for Food
+    describe "food" do
+
+  context "given $0, 0 people, food" do
+        it "returns 0" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(0, 0, "food")           
+        expect(value).to eq(0)  
+      end
+    end
+
+    context "given $0, 9 people, food" do
+        it "returns 0" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(0, 0, "food")           
+        expect(value).to eq(0)  
+      end
+    end
+
+     context "$6,666.00, 0 people, food" do
+        it "returns 7909.21" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(6666, 0, "food")           
+        expect(value).to eq(7909.21)  
+      end
+    end
+
+  context "$5,432.00, 1 person, food" do
+        it "returns 6513.51" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(5432, 1, "food")           
+        expect(value).to eq(6513.51)  
+      end
+    end
+
+    context "$1,299.99, 3 people, food" do
+        it "returns 1591.58" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(1299.99, 3, "food")           
+        expect(value).to eq(1591.58)  
+      end
+    end
+
+  
+    end 
+
+
+
+
    end
 
 
 
 
-   
+
   end
