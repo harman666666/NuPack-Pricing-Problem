@@ -13,14 +13,15 @@ OTHERRATE = 0.00
     def projectCost(price, people, type)
 
         if(type == "drugs")
-            return (flatMarkupPrice(price)*(1+ people*PERSONRATE + DRUGSRATE)).round(2)
+            rate = DRUGSRATE
         elsif(type == "food")
-            return (flatMarkupPrice(price)*(1+ people*PERSONRATE + FOODRATE)).round(2)
+            rate = FOODRATE
         elsif(type == "electronics")
-            return (flatMarkupPrice(price)*(1+ people*PERSONRATE + ELECTRONICSRATE)).round(2)
+            rate = ELECTRONICSRATE
         else
-            return (flatMarkupPrice(price)*(1+ people*PERSONRATE + OTHERRATE)).round(2)
+            rate = OTHERRATE
         end
+            return (flatMarkupPrice(price)*(1+ people*PERSONRATE + rate)).round(2)
     end
 
 
