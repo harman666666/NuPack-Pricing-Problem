@@ -159,10 +159,51 @@ describe ".projectCost" do
         expect(value).to eq(5107.52)  
       end
     end
-
-  
     end  
 
+ #Tests for Other items
+  describe "other" do
+
+  context "given $0, 0 people, books" do
+        it "returns 0" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(0, 0, "books")           
+        expect(value).to eq(0)  
+      end
+    end
+
+    context "given $0, 9 people, games" do
+        it "returns 0" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(0, 0, "games")           
+        expect(value).to eq(0)  
+      end
+    end
+
+     context "$6,666.00, 0 people, sports" do
+        it "returns 6999.30" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(6666, 0, "sports")           
+        expect(value).to eq(6999.30)  
+      end
+    end
+
+  context "$5,432.00, 1 person, games" do
+        it "returns 5772.04" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(5432, 1, "games")           
+        expect(value).to eq(5772.04)  
+      end
+    end
+
+    context "$4,503.99, 5 people, cards" do
+        it "returns 5012.94" do
+        nupack  = Nupack.new         
+        value = nupack.projectCost(4503.99, 5, "cards")           
+        expect(value).to eq(5012.94)  
+      end
+    end
+    end 
 
 
 
