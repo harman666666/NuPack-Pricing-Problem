@@ -1,8 +1,8 @@
 class Nupack
+FLATRATE = 0.05
 
     def flatMarkupPrice(price)
-        value = (price*(1+0.05)).round(2)
-        return value
+        return (price*(1+FLATRATE)).round(2)
     end
 
 
